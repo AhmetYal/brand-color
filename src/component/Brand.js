@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext, useState } from "react";
 import { getContrastYIQ } from "../helpers";
 import MainContext from "../MainContext";
 import ClipboardButton from "react-clipboard.js";
@@ -6,6 +6,7 @@ import ClipboardButton from "react-clipboard.js";
 function Brand({ brand }) {
   const { selectedBrands, setSelectedBrands, setCopied } =
     useContext(MainContext);
+
   const toggleSelected = () => {
     if (selectedBrands.includes(brand.slug)) {
       setSelectedBrands(selectedBrands.filter((slug) => slug !== brand.slug));
@@ -26,8 +27,9 @@ function Brand({ brand }) {
     >
       <h5 onClick={toggleSelected}>{brand.title}</h5>
       <div className="brand-colors">
-        {brand.colors.map((color) => (
+        {brand.colors.map((color, key) => (
           <ClipboardButton
+            key={key}
             data-clipboard-text={color}
             onSuccess={() => setColor(color)}
             component="span"

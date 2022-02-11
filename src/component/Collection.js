@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { GrLinkPrevious } from "react-icons/gr";
-import Loader from "./Loader";
+
 import Download from "./Download";
 import LazyLoad from "react-lazyload";
 import Brand from "./Brand";
 import MainContext from "../MainContext";
+import Loader from "./Loader";
 
 function Collection(props) {
   const { slugs } = useParams();
@@ -21,7 +22,7 @@ function Collection(props) {
 
   useEffect(() => {
     setSelectedBrands(slugs.split(","));
-  }, []);
+  }, [setSelectedBrands, slugs]);
 
   return (
     <main className="content">
@@ -42,8 +43,8 @@ function Collection(props) {
             <LazyLoad
               key={brand.slug}
               once={true}
-              placeholder={<Loader />}
               overflow={true}
+              placeholder={<Loader />}
             >
               <Brand brand={brand} />
             </LazyLoad>

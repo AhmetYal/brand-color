@@ -2,28 +2,24 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { GrClose } from "react-icons/gr";
 
-function SideBar() {
+function Sidebar() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen);
   };
-  //   const closeModal = () => {
-  //     setModalIsOpen(false);
-  //   };
-  //   const openModal = () => {
-  //     setModalIsOpen(true);
-  //   };
 
   return (
     <>
       <aside className="sidebar">
         <div className="logo">
           <a href="/#">
-            Brand <b>Colors</b>
+            Brand<b>Colors</b>
           </a>
         </div>
         <div className="description">
-          The biggest collection of official brand codes around.
+          The biggest collection of official brand color codes around. Curated
+          by @brandcolors and friends.
         </div>
         <nav className="menu">
           <ul>
@@ -35,6 +31,7 @@ function SideBar() {
           </ul>
         </nav>
       </aside>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={toggleModal}
@@ -60,4 +57,4 @@ function SideBar() {
   );
 }
 
-export default SideBar;
+export default Sidebar;

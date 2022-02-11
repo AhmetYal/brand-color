@@ -7,6 +7,7 @@ import Copied from "./component/Copied";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Collection from "./component/Collection";
 import { forceCheck } from "react-lazyload";
+
 function App() {
   const brandsArray = [];
   Object.keys(BrandsData).map((key) => {
@@ -40,7 +41,7 @@ function App() {
     setBrands(
       brandsArray.filter((brand) => brand.title.toLowerCase().includes(search))
     );
-  }, [search]);
+  }, [search, brandsArray]);
 
   useEffect(() => {
     forceCheck();
