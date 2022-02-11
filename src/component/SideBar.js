@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
+import { GrClose } from "react-icons/gr";
 
 function SideBar() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -17,7 +18,7 @@ function SideBar() {
     <>
       <aside className="sidebar">
         <div className="logo">
-          <a href="/#" onClick={toggleModal}>
+          <a href="/#">
             Brand <b>Colors</b>
           </a>
         </div>
@@ -27,7 +28,9 @@ function SideBar() {
         <nav className="menu">
           <ul>
             <li>
-              <a href="/#">About BrandColors</a>
+              <a href="/#" onClick={toggleModal}>
+                About BrandColors
+              </a>
             </li>
           </ul>
         </nav>
@@ -38,7 +41,9 @@ function SideBar() {
         className="about-modal"
         overlayClassName="about-modal-overlay"
       >
-        <button onClick={toggleModal}>close</button>
+        <button className="modal-close-btn" onClick={toggleModal}>
+          <GrClose />
+        </button>
         <h3>About BrandColors</h3>
         <p>
           BrandColors was created by DesignBombs. The goal was to create a
